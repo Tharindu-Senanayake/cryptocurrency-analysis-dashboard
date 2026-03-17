@@ -1,0 +1,21 @@
+﻿id,symbol,name,slug,date_added,max_supply,infinite_supply
+1,BTC,Bitcoin,bitcoin,2010-07-13 00:00:00+00:00,21000000.0,False
+1027,ETH,Ethereum,ethereum,2015-08-07 00:00:00+00:00,,True
+1839,BNB,BNB,bnb,2017-07-25 00:00:00+00:00,136358610.77,False
+5426,SOL,Solana,solana,2020-04-10 00:00:00+00:00,,True
+52,XRP,XRP,xrp,2013-08-04 00:00:00+00:00,100000000000.0,False
+74,DOGE,Dogecoin,dogecoin,2013-12-15 00:00:00+00:00,,True
+2010,ADA,Cardano,cardano,2017-10-01 00:00:00+00:00,45000000000.0,False
+1958,TRX,TRON,tron,2017-09-13 00:00:00+00:00,,True
+5805,AVAX,Avalanche,avalanche,2020-07-13 00:00:00+00:00,715748719.0,False
+11419,TON,Toncoin,toncoin,2021-08-26 13:40:22+00:00,,True
+1975,LINK,Chainlink,chainlink,2017-09-20 00:00:00+00:00,1000000000.0,False
+5994,SHIB,Shiba Inu,shiba-inu,2020-08-01 00:00:00+00:00,589552695333683.0,False
+6636,DOT,Polkadot,polkadot-new,2020-08-19 00:00:00+00:00,2100000000.0,False
+28321,POL,Polygon (prev. MATIC),polygon-ecosystem-token,2023-10-30 14:43:57+00:00,,False
+2,LTC,Litecoin,litecoin,2013-04-28 00:00:00+00:00,84000000.0,False
+1831,BCH,Bitcoin Cash,bitcoin-cash,2017-07-23 00:00:00+00:00,21000000.0,False
+7083,UNI,Uniswap,uniswap,2020-09-17 00:00:00+00:00,,False
+6535,NEAR,NEAR Protocol,near-protocol,2020-08-11 00:00:00+00:00,,False
+512,XLM,Stellar,stellar,2014-08-05 00:00:00+00:00,50001806812.0,False
+3794,ATOM,Cosmos,cosmos,2019-03-14 00:00:00+00:00,,True
