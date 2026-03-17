@@ -1,0 +1,16 @@
+{
+  "name": "CryptoDark",
+  "dataColors": [
+    "#58A6FF",
+    "#E3B341",
+    "#3FB950",
+    "#F85149",
+    "#8B949E",
+    "#D2A8FF",
+    "#79C0FF",
+    "#FFA657"
+  ],
+  "background": "#0D1117",
+  "foreground": "#E6EDF3",
+  "tableAccent": "#58A6FF"
+}
