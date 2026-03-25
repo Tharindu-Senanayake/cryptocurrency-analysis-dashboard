@@ -17,7 +17,10 @@ A fully automated data pipeline that collects daily price snapshots for the top 
 
 > Power BI dashboard with desktop and mobile layouts connected to live GitHub data.
 
-*Screenshot coming soon*
+![Page 1](screenshots/Screenshot_page_1.jpg)
+![Page 2](screenshots/Screenshot_page_2.jpg)
+![Page 3](screenshots/Screenshot_page_3.jpg)
+![Page 4](screenshots/Screenshot_page_4.jpg)
 
 ---
 
