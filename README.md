@@ -50,7 +50,7 @@ GitHub Actions runs both scripts daily at midnight UTC (10am AEST) and commits t
 
 ## Data Model
 
-**Star schema — 4 tables:**
+**Star schema - 4 tables:**
 
 | Table | Type | Description |
 |---|---|---|
