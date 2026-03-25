@@ -2,10 +2,10 @@
 build_tables.py
 
 Reads the raw daily snapshot CSV and builds 4 star-schema tables:
-  dim_coin           — one row per coin (static attributes)
-  dim_date           — one row per calendar date
-  fact_coin_prices   — one row per coin per snapshot (price/market metrics)
-  fact_global_market — one row per snapshot (global market metrics)
+  dim_coin           - one row per coin (static attributes)
+  dim_date           - one row per calendar date
+  fact_coin_prices   - one row per coin per snapshot (price/market metrics)
+  fact_global_market - one row per snapshot (global market metrics)
 
 Run after crypto_daily_snapshot.py has appended new data.
 
@@ -154,7 +154,7 @@ def main():
     for name, tdf in tables.items():
         path = OUTPUT_TABLES[name]
         tdf.to_csv(path, index=False, encoding="utf-8-sig")
-        logging.info("Saved %s — %d rows, %d cols", name, len(tdf), len(tdf.columns))
+        logging.info("Saved %s - %d rows, %d cols", name, len(tdf), len(tdf.columns))
 
     log_run("SUCCESS", detail=f"tables built from {len(df)} raw rows")
     logging.info("Done.")

@@ -9,7 +9,7 @@
 | Input | Source | Notes |
 |-------|--------|-------|
 | `CMC_API_KEY` | `.env` | Free-tier CoinMarketCap key |
-| Watchlist | Hardcoded in script | 20 symbols — edit `WATCHLIST` list in script to change |
+| Watchlist | Hardcoded in script | 20 symbols - edit `WATCHLIST` list in script to change |
 | Currency | AUD | Hardcoded |
 
 ---
@@ -42,7 +42,7 @@ python tools/crypto_daily_snapshot.py
 
 | Item | Location | Notes |
 |------|----------|-------|
-| CSV data | `output/raw/crypto_daily_snapshots.csv` | Appended — never overwritten |
+| CSV data | `output/raw/crypto_daily_snapshots.csv` | Appended - never overwritten |
 | Run log | `logs/run.log` | One line per execution |
 
 **CSV column groups:**
@@ -77,11 +77,11 @@ python tools/crypto_daily_snapshot.py
 
 | Scenario | Behaviour |
 |----------|-----------|
-| `CMC_API_KEY` missing or blank | Exits with code `1`, logs error — no API call made |
+| `CMC_API_KEY` missing or blank | Exits with code `1`, logs error - no API call made |
 | CMC returns non-zero error code | Raises `RuntimeError`, logs message, exits `1` |
 | Network timeout (>15s) | Raises `requests.exceptions.RequestException`, logs, exits `1` |
-| Symbol not returned by CMC | Row still written with only `timestamp` and `symbol` — CMC fields empty |
-| Script run twice on the same day | Duplicate rows appended — deduplicate in analysis using `timestamp + symbol` key |
+| Symbol not returned by CMC | Row still written with only `timestamp` and `symbol` - CMC fields empty |
+| Script run twice on the same day | Duplicate rows appended - deduplicate in analysis using `timestamp + symbol` key |
 | Output directory missing | Created automatically |
 | Existing CSV has `cg_*` columns (old format) | Archived to `crypto_daily_snapshots_archive_{date}.csv` before new file is created |
 
@@ -91,6 +91,6 @@ python tools/crypto_daily_snapshot.py
 
 - **Add/remove a coin:** Edit the `WATCHLIST` list in `tools/crypto_daily_snapshot.py`. Use the CMC symbol (e.g. `"BTC"`).
 - **Change currency:** Update `convert` param in `fetch_cmc_quotes` and prefix convention for quote columns.
-- **Rotate API key:** Update `CMC_API_KEY` in `.env` — no code change needed.
-- **Check free-tier limits:** CoinMarketCap free tier allows ~333 calls/day. This script uses 2 per run — safe for multiple runs daily.
-- **Interactive use:** Import and call `main()` from a notebook — `df` is populated after each run with no `sys.exit()` side effects.
+- **Rotate API key:** Update `CMC_API_KEY` in `.env` - no code change needed.
+- **Check free-tier limits:** CoinMarketCap free tier allows ~333 calls/day. This script uses 2 per run - safe for multiple runs daily.
+- **Interactive use:** Import and call `main()` from a notebook - `df` is populated after each run with no `sys.exit()` side effects.

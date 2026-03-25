@@ -4,11 +4,11 @@ crypto_daily_snapshot.py
 Daily scheduled script. Fetches today's snapshot for 20 cryptocurrencies
 and appends 20 rows to a rolling CSV (one row per coin per day).
 
-All fields returned by CMC are captured as-is — no column filtering.
+All fields returned by CMC are captured as-is - no column filtering.
 Column prefixes:
-  (none)   — CoinMarketCap coin-level fields (id, name, slug, symbol, ...)
-  aud_     — CoinMarketCap AUD quote fields (aud_price, aud_market_cap, ...)
-  global_  — CoinMarketCap global market metrics, same value for all coins
+  (none)   - CoinMarketCap coin-level fields (id, name, slug, symbol, ...)
+  aud_     - CoinMarketCap AUD quote fields (aud_price, aud_market_cap, ...)
+  global_  - CoinMarketCap global market metrics, same value for all coins
 
 Manually added columns: timestamp, symbol.
 
@@ -41,7 +41,7 @@ LOG_FILE   = LOG_DIR / "run.log"
 OUTPUT_CSV = OUTPUT_DIR / "crypto_daily_snapshots.csv"
 
 # ---------------------------------------------------------------------------
-# Watchlist — CMC symbols only
+# Watchlist - CMC symbols only
 # Most consistently top-20 non-stablecoin cryptocurrencies.
 # To add/remove a coin: update this list and re-run.
 # ---------------------------------------------------------------------------
@@ -58,7 +58,7 @@ WATCHLIST = [
 CMC_QUOTES_URL = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest"
 CMC_GLOBAL_URL = "https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest"
 
-# Global DataFrame — populated after each run, accessible for manual analysis
+# Global DataFrame - populated after each run, accessible for manual analysis
 df = None
 
 
@@ -203,7 +203,7 @@ def append_csv(rows: list):
     to crypto_daily_snapshots_archive_{date}.csv before writing the new file.
 
     Creates the file with a header on first run; appends without header after.
-    Columns are inferred from the data — no hardcoded column list.
+    Columns are inferred from the data - no hardcoded column list.
     """
     global df
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -243,7 +243,7 @@ def main():
     """
     Fetch CMC data, append to CSV, and populate the module-level `df`.
 
-    Safe to call from a notebook or interactive session — no sys.exit() calls.
+    Safe to call from a notebook or interactive session - no sys.exit() calls.
     Exit codes are only applied when the script is run directly.
     """
     setup_logging()

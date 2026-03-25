@@ -35,7 +35,7 @@ python tools/build_tables.py
 | `fact_global_market` | `output/tables/fact_global_market.csv` | One row per snapshot | FK: `date` → `dim_date` |
 | Run log | `logs/run.log` | One line per execution | |
 
-**Note:** All 4 table CSVs are overwritten on each run — they are always rebuilt from the full raw CSV.
+**Note:** All 4 table CSVs are overwritten on each run - they are always rebuilt from the full raw CSV.
 
 ---
 

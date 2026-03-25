@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 # Crypto Currency Analysis
 
-Daily data collection pipeline for the top 20 cryptocurrencies (AUD). Fetches raw snapshots from CoinMarketCap and appends 20 rows per day to `output/raw/crypto_daily_snapshots.csv`. A second script builds a star-schema from the raw data into `output/tables/`. Data is stored as-is — no cleaning or transformation in the collection script. User handles analysis in notebooks separately.
+Daily data collection pipeline for the top 20 cryptocurrencies (AUD). Fetches raw snapshots from CoinMarketCap and appends 20 rows per day to `output/raw/crypto_daily_snapshots.csv`. A second script builds a star-schema from the raw data into `output/tables/`. Data is stored as-is - no cleaning or transformation in the collection script. User handles analysis in notebooks separately.
 
 ---
 
@@ -16,19 +16,19 @@ You're working inside the **WAT framework** (Workflows, Agents, Tools). AI handl
 
 ## The WAT Architecture
 
-**Layer 1: Workflows** — Markdown SOPs in `workflows/`. Each defines the objective, inputs, which tool to call, expected output, and how to handle edge cases.
+**Layer 1: Workflows** - Markdown SOPs in `workflows/`. Each defines the objective, inputs, which tool to call, expected output, and how to handle edge cases.
 
-**Layer 2: Agent (You)** — Read the relevant workflow, call tools in the right sequence, handle failures, ask before re-running anything that costs API credits.
+**Layer 2: Agent (You)** - Read the relevant workflow, call tools in the right sequence, handle failures, ask before re-running anything that costs API credits.
 
-**Layer 3: Tools** — Python scripts in `tools/`. Stateless, re-runnable, and fast. They do the actual work.
+**Layer 3: Tools** - Python scripts in `tools/`. Stateless, re-runnable, and fast. They do the actual work.
 
 ---
 
 ## Environment
 
 - **OS:** Windows 11
-- **Language:** Python 3.x — all tools must be written in Python, no exceptions
-- **Command:** Always use `python` (not `python3`) — this is Windows
+- **Language:** Python 3.x - all tools must be written in Python, no exceptions
+- **Command:** Always use `python` (not `python3`) - this is Windows
 - **Output format:** CSV files saved to `output/`
 - **Scheduling target:** Windows Task Scheduler (scripts must run headlessly)
 - **Secrets:** All API keys go in `.env` only
@@ -66,11 +66,11 @@ output/
   raw/               # Rolling raw snapshot CSV (append-only)
   tables/            # Star-schema CSVs for Power BI (rebuilt daily)
 reports/             # Power BI reports (.pbix)
-logs/                # run.log — one line per execution
+logs/                # run.log - one line per execution
 tools/               # Python scripts for deterministic execution
 workflows/           # Markdown SOPs
 .env                 # API keys (gitignored)
-.tmp/                # Temporary/intermediate files — disposable
+.tmp/                # Temporary/intermediate files - disposable
 requirements.txt     # Python dependencies
 ```
 
@@ -83,7 +83,7 @@ requirements.txt     # Python dependencies
 - Always include a `timestamp` column (UTC)
 - Include a unique key column per row for safe deduplication
 - Encoding: `utf-8-sig` (BOM) so Excel opens without issues
-- Never overwrite an existing file — use a new timestamped filename
+- Never overwrite an existing file - use a new timestamped filename
 
 ---
 
