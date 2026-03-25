@@ -5,6 +5,9 @@ on:
     - cron: '0 0 * * *'   # midnight UTC = 10am AEST / 11am AEDT
   workflow_dispatch:        # allow manual run from GitHub UI
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   pipeline:
     runs-on: ubuntu-latest
@@ -14,6 +17,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -37,4 +42,4 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add output/
           git diff --staged --quiet || git commit -m "data: daily snapshot $(date -u +%Y-%m-%d)"
-          git push
+          git push origin main
