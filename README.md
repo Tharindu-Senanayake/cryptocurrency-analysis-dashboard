@@ -17,7 +17,7 @@ A fully automated data pipeline that tracks a fixed watchlist of 20 major crypto
 
 > Power BI dashboard with desktop and mobile layouts connected to live GitHub data.
 
-
+**[View Live Dashboard](https://app.powerbi.com/view?r=eyJrIjoiNDZmYjE2MWUtODk0My00ZjMzLWFmMzQtMTFiM2JmZTdjY2NjIiwidCI6IjVhZDBjMjdjLTcxN2YtNDRjMy1hODhjLTM5OTMzZDA4NmMyNSJ9)**
 
 ---
 
