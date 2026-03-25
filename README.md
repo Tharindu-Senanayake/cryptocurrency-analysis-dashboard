@@ -1,12 +1,12 @@
 # Cryptocurrency Analysis Dashboard
 
-A fully automated data pipeline that collects daily price snapshots for the top 20 cryptocurrencies by market cap (AUD), stores them in a star-schema data warehouse, and visualises them in an interactive Power BI dashboard with mobile support.
+A fully automated data pipeline that tracks a fixed watchlist of 20 major cryptocurrencies (AUD) — selected at project start based on market cap ranking — stores daily price snapshots in a star-schema data warehouse, and visualises them in an interactive Power BI dashboard with mobile support.
 
 ---
 
 ## What It Does
 
-- Fetches daily price, volume, and market data for 20 cryptocurrencies from the CoinMarketCap API
+- Tracks a fixed watchlist of 20 major cryptocurrencies selected at project start based on market cap ranking
 - Appends 20 rows per day to a rolling raw CSV (append-only, never overwritten)
 - Rebuilds a star-schema from the raw data for use in Power BI
 - Runs automatically every day via GitHub Actions - no PC required
@@ -17,10 +17,7 @@ A fully automated data pipeline that collects daily price snapshots for the top 
 
 > Power BI dashboard with desktop and mobile layouts connected to live GitHub data.
 
-![Page 1](screenshots/screenshot_page_1.png)
-![Page 2](screenshots/screenshot_page_2.png)
-![Page 3](screenshots/screenshot_page_3.png)
-![Page 4](screenshots/screenshot_page_4.png)
+
 
 ---
 
