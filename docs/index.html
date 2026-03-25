@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cryptocurrency Analysis Dashboard</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #161b22;
+      border-bottom: 1px solid #30363d;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #f0f6fc;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: #8b949e;
+      font-size: 1rem;
+      max-width: 640px;
+      margin: 0 auto 1.25rem;
+    }
+
+    .header-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover { opacity: 0.85; }
+
+    .btn-primary {
+      background: #f6c90e;
+      color: #0d1117;
+    }
+
+    .btn-secondary {
+      background: #21262d;
+      color: #e6edf3;
+      border: 1px solid #30363d;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #f0f6fc;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #30363d;
+    }
+
+    .dashboard-wrapper {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .dashboard-wrapper iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      display: block;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: 1fr; }
+      .dashboard-wrapper iframe { height: 400px; }
+      header h1 { font-size: 1.4rem; }
+    }
+
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+
+    .card h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #f0f6fc;
+      margin-bottom: 0.75rem;
+    }
+
+    .skills-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .skills-list li {
+      font-size: 0.9rem;
+      color: #8b949e;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .skills-list li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #f6c90e;
+    }
+
+    .skills-list li strong {
+      color: #e6edf3;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background: #21262d;
+      border: 1px solid #30363d;
+      border-radius: 20px;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.8rem;
+      color: #8b949e;
+    }
+
+    .pipeline {
+      font-size: 0.85rem;
+      color: #8b949e;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .pipeline-step {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .pipeline-step .arrow {
+      color: #f6c90e;
+      font-size: 0.75rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      border-top: 1px solid #30363d;
+      color: #8b949e;
+      font-size: 0.8rem;
+    }
+
+    footer a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Cryptocurrency Analysis Dashboard</h1>
+    <p>Automated daily pipeline tracking 20 major cryptocurrencies in AUD - from API to interactive dashboard, fully unattended.</p>
+    <div class="header-links">
+      <a class="btn btn-primary" href="https://app.powerbi.com/view?r=eyJrIjoiNDZmYjE2MWUtODk0My00ZjMzLWFmMzQtMTFiM2JmZTdjY2NjIiwidCI6IjVhZDBjMjdjLTcxN2YtNDRjMy1hODhjLTM5OTMzZDA4NmMyNSJ9" target="_blank">View Full Dashboard</a>
+      <a class="btn btn-secondary" href="https://github.com/Tharindu-Senanayake/cryptocurrency-analysis-dashboard" target="_blank">GitHub Repo</a>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <div class="dashboard-wrapper">
+      <iframe
+        title="Cryptocurrency Analysis Dashboard"
+        src="https://app.powerbi.com/view?r=eyJrIjoiNDZmYjE2MWUtODk0My00ZjMzLWFmMzQtMTFiM2JmZTdjY2NjIiwidCI6IjVhZDBjMjdjLTcxN2YtNDRjMy1hODhjLTM5OTMzZDA4NmMyNSJ9"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Key Skills Demonstrated</h3>
+        <ul class="skills-list">
+          <li><strong>Data Pipeline Engineering</strong> - end-to-end automated ingestion to visualisation</li>
+          <li><strong>Data Modelling</strong> - star schema with fact and dimension tables</li>
+          <li><strong>Power BI</strong> - multi-page dashboard with desktop and mobile layouts</li>
+          <li><strong>Python</strong> - production-quality scripts with logging and error handling</li>
+          <li><strong>Workflow Automation</strong> - GitHub Actions daily cron, self-maintaining pipeline</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Pipeline</h3>
+        <div class="pipeline">
+          <div class="pipeline-step"><span class="arrow">▸</span> CoinMarketCap API</div>
+          <div class="pipeline-step"><span class="arrow">▸</span> Python ingestion script</div>
+          <div class="pipeline-step"><span class="arrow">▸</span> Append-only raw CSV</div>
+          <div class="pipeline-step"><span class="arrow">▸</span> Star-schema table builder</div>
+          <div class="pipeline-step"><span class="arrow">▸</span> GitHub Actions (daily, midnight UTC)</div>
+          <div class="pipeline-step"><span class="arrow">▸</span> Power BI live refresh</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Tech Stack</h3>
+        <div class="tech-tags">
+          <span class="tag">Python</span>
+          <span class="tag">pandas</span>
+          <span class="tag">CoinMarketCap API</span>
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">Star Schema</span>
+          <span class="tag">CSV</span>
+          <span class="tag">WAT Framework</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Data Model</h3>
+        <ul class="skills-list">
+          <li><strong>dim_coin</strong> - coin attributes (name, slug, max supply)</li>
+          <li><strong>dim_date</strong> - date hierarchy (year, quarter, month, day)</li>
+          <li><strong>fact_coin_prices</strong> - daily price, volume, market cap</li>
+          <li><strong>fact_global_market</strong> - BTC dominance, DeFi, stablecoins</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    Built by <a href="https://github.com/Tharindu-Senanayake" target="_blank">Tharindu Senanayake</a> &nbsp;|&nbsp;
+    Data: <a href="https://coinmarketcap.com/api/" target="_blank">CoinMarketCap API</a> &nbsp;|&nbsp;
+    <a href="https://github.com/Tharindu-Senanayake/cryptocurrency-analysis-dashboard" target="_blank">View source on GitHub</a>
+  </footer>
+
+</body>
+</html>
