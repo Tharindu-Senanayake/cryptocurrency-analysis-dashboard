@@ -9,7 +9,7 @@ A fully automated data pipeline that collects daily price snapshots for the top 
 - Fetches daily price, volume, and market data for 20 cryptocurrencies from the CoinMarketCap API
 - Appends 20 rows per day to a rolling raw CSV (append-only, never overwritten)
 - Rebuilds a star-schema from the raw data for use in Power BI
-- Runs automatically every day via GitHub Actions — no PC required
+- Runs automatically every day via GitHub Actions - no PC required
 
 ---
 
