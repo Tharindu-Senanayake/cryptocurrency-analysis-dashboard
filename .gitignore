@@ -15,9 +15,6 @@ logs/
 # Temp
 .tmp/
 
-# Power BI (binary — too large for git)
-reports/*.pbix
-
 # Jupyter
 .ipynb_checkpoints/
 notebooks/.ipynb_checkpoints/
