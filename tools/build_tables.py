@@ -99,7 +99,18 @@ def main():
     # Parse datetimes
     df2["timestamp"]    = pd.to_datetime(df2["timestamp"])
     df2["last_updated"] = pd.to_datetime(df2["last_updated"])
-    df2["date_added"]   = pd.to_datetime(df2["date_added"])
+
+    def parse_date_added(val):
+        try:
+            return pd.to_datetime(val, utc=True)
+        except Exception:
+            try:
+                # Some coins return date_added as a Unix timestamp in milliseconds
+                return pd.to_datetime(float(val) / 1000, unit="s", utc=True)
+            except Exception:
+                return pd.NaT
+
+    df2["date_added"] = df2["date_added"].apply(parse_date_added).dt.tz_localize(None)
 
     # Fix integer columns
     df2["id"]       = df2["id"].astype(int)
