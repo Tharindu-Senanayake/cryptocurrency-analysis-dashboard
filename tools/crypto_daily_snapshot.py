@@ -220,6 +220,13 @@ def append_csv(rows: list):
             logging.info("Archived old CSV (had cg_* columns) to %s", archive_path.name)
 
     write_header = not OUTPUT_CSV.exists()
+
+    # Align new rows to the existing CSV's column order to prevent misalignment
+    # when the API returns fields in a different order on a given day.
+    if not write_header:
+        existing_cols = pd.read_csv(OUTPUT_CSV, nrows=0, encoding="utf-8-sig").columns.tolist()
+        df = df.reindex(columns=existing_cols)
+
     df.to_csv(OUTPUT_CSV, mode="a", index=False, header=write_header, encoding="utf-8-sig")
 
 

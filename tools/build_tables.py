@@ -96,21 +96,20 @@ def main():
         "global_stablecoin_market_cap", "global_derivatives_volume_24h",
     ]].copy()
 
-    # Parse datetimes
-    df2["timestamp"]    = pd.to_datetime(df2["timestamp"])
-    df2["last_updated"] = pd.to_datetime(df2["last_updated"])
-
-    def parse_date_added(val):
+    def parse_dt(val):
+        """Parse ISO string or Unix millisecond timestamp to tz-naive UTC datetime."""
         try:
             return pd.to_datetime(val, utc=True)
         except Exception:
             try:
-                # Some coins return date_added as a Unix timestamp in milliseconds
                 return pd.to_datetime(float(val) / 1000, unit="s", utc=True)
             except Exception:
                 return pd.NaT
 
-    df2["date_added"] = df2["date_added"].apply(parse_date_added).dt.tz_localize(None)
+    # Parse datetimes — CMC occasionally returns Unix ms timestamps instead of ISO strings
+    df2["timestamp"]    = pd.to_datetime(df2["timestamp"]).dt.tz_localize(None)
+    df2["last_updated"] = df2["last_updated"].apply(parse_dt).dt.tz_localize(None)
+    df2["date_added"]   = df2["date_added"].apply(parse_dt).dt.tz_localize(None)
 
     # Fix integer columns
     df2["id"]       = df2["id"].astype(int)
