@@ -88,10 +88,37 @@
       margin-bottom: 2rem;
     }
 
-    .dashboard-wrapper iframe {
-      width: 100%;
-      height: 600px;
+    .tab-bar {
+      display: flex;
+      border-bottom: 1px solid #30363d;
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      flex-shrink: 0;
+      padding: 0.65rem 1.1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #8b949e;
+      background: none;
       border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .tab-btn:hover { color: #e6edf3; }
+
+    .tab-btn.active {
+      color: #f6c90e;
+      border-bottom-color: #f6c90e;
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .tab-panel img {
+      width: 100%;
       display: block;
     }
 
@@ -201,7 +228,7 @@
     <h1>Cryptocurrency Analysis Dashboard</h1>
     <p>Automated daily pipeline tracking 20 major cryptocurrencies in AUD - from API to interactive dashboard, fully unattended.</p>
     <div class="header-links">
-      <a class="btn btn-primary" href="https://app.powerbi.com/view?r=eyJrIjoiNDZmYjE2MWUtODk0My00ZjMzLWFmMzQtMTFiM2JmZTdjY2NjIiwidCI6IjVhZDBjMjdjLTcxN2YtNDRjMy1hODhjLTM5OTMzZDA4NmMyNSJ9" target="_blank">View Full Dashboard</a>
+      <a class="btn btn-primary" href="https://github.com/Tharindu-Senanayake/cryptocurrency-analysis-dashboard/raw/main/reports/crypto_dashboard.pbix" target="_blank">Download .pbix</a>
       <a class="btn btn-secondary" href="https://github.com/Tharindu-Senanayake/cryptocurrency-analysis-dashboard" target="_blank">GitHub Repo</a>
     </div>
   </header>
@@ -209,12 +236,24 @@
   <div class="container">
 
     <div class="dashboard-wrapper">
-      <iframe
-        title="Cryptocurrency Analysis Dashboard"
-        src="https://app.powerbi.com/view?r=eyJrIjoiNDZmYjE2MWUtODk0My00ZjMzLWFmMzQtMTFiM2JmZTdjY2NjIiwidCI6IjVhZDBjMjdjLTcxN2YtNDRjMy1hODhjLTM5OTMzZDA4NmMyNSJ9"
-        allowfullscreen>
-      </iframe>
+      <div class="tab-bar">
+        <button class="tab-btn active" onclick="showTab(0)">Market Overview</button>
+        <button class="tab-btn" onclick="showTab(1)">Coin Performance</button>
+        <button class="tab-btn" onclick="showTab(2)">Trend Analysis</button>
+        <button class="tab-btn" onclick="showTab(3)">Market Segments</button>
+      </div>
+      <div class="tab-panel active"><img src="screenshots/screenshot_page_1.png" alt="Market Overview" /></div>
+      <div class="tab-panel"><img src="screenshots/screenshot_page_2.png" alt="Coin Performance" /></div>
+      <div class="tab-panel"><img src="screenshots/screenshot_page_3.png" alt="Trend Analysis" /></div>
+      <div class="tab-panel"><img src="screenshots/screenshot_page_4.png" alt="Market Segments" /></div>
     </div>
+
+    <script>
+      function showTab(index) {
+        document.querySelectorAll('.tab-btn').forEach((btn, i) => btn.classList.toggle('active', i === index));
+        document.querySelectorAll('.tab-panel').forEach((panel, i) => panel.classList.toggle('active', i === index));
+      }
+    </script>
 
     <div class="grid">
 
