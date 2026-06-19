@@ -82,8 +82,8 @@ def main():
     # Deduplicate
     df = df.drop_duplicates(subset=["timestamp", "symbol"], keep="first")
 
-    # Select working columns
-    df2 = df[[
+    # Select working columns - reindex so missing columns become NaN instead of KeyError
+    WORKING_COLS = [
         "timestamp", "id", "symbol", "name", "slug", "cmc_rank", "date_added",
         "max_supply", "circulating_supply", "total_supply", "infinite_supply",
         "last_updated", "aud_price", "aud_volume_24h",
@@ -94,7 +94,11 @@ def main():
         "global_eth_dominance", "global_btc_dominance", "global_defi_volume_24h",
         "global_defi_market_cap", "global_stablecoin_volume_24h",
         "global_stablecoin_market_cap", "global_derivatives_volume_24h",
-    ]].copy()
+    ]
+    missing_cols = [c for c in WORKING_COLS if c not in df.columns]
+    if missing_cols:
+        logging.warning("Columns missing from raw data (will be NaN): %s", missing_cols)
+    df2 = df.reindex(columns=WORKING_COLS).copy()
 
     def parse_dt(val):
         """Parse ISO string or Unix millisecond timestamp to tz-naive UTC datetime."""
